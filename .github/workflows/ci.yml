@@ -11,32 +11,19 @@ on:
   # 允许从【Actions】选项卡手动运行此工作流
   workflow_dispatch:
 
-# 部署到【GitHub Pages】的【GITHUB_TOKEN】作用域
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# 允许一个并发部署
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
-# 默认使用【Bash】
-defaults:
-  run:
-    shell: bash
-
 # 工作流由一个或多个工作组成
 jobs:
-  # 构建 ID
-  build:
-    # 构建名称
-    name: Build
-    # 构建运行环境
+  # 工作 ID
+  build-and-deploy:
+    # 工作名称
+    name: Build and Deploy
+    # 工作运行环境
     runs-on: ubuntu-latest
+    # 工作权限作用域
+    permissions:
+      contents: write
 
-    # 构建工作由一个或多个步骤组成
+    # 工作由一个或多个步骤组成
     steps:
       # 仓库【主分支】签出到【GITHUB_WORKSPACE】
       - name: Checkout
@@ -68,28 +55,12 @@ jobs:
       - name: Build
         run: npm run build
 
-      # 上传
-      - name: Upload Artifact
-        uses: actions/upload-pages-artifact@v1
+      # 部署到【gh-pages】分支
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
         with:
-          path: ./dist
-
-  # 部署 ID
-  deploy:
-    # 部署名称
-    name: Deploy
-    # 部署环境
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    # 部署运行环境
-    runs-on: ubuntu-latest
-    # 依赖前置工作
-    needs: build
-
-    # 部署工作由一个或多个步骤组成
-    steps:
-      # 部署到【GitHub Pages】
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          full_commit_message: ${{ github.event.head_commit.message }}
