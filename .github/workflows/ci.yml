@@ -53,7 +53,7 @@ jobs:
 
       # 构建
       - name: Build
-        run: npm run build
+        run: npm run build:demo
 
       # 部署到【gh-pages】分支
       - name: Deploy to gh-pages
@@ -61,6 +61,6 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./_demo
           publish_branch: gh-pages
           full_commit_message: ${{ github.event.head_commit.message }}
