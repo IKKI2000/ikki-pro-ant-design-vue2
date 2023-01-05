@@ -4,4 +4,11 @@ module.exports = defineConfig({
     outputDir: process.env.outputDir,
     transpileDependencies: true,
     lintOnSave: true,
+    productionSourceMap: false,
+    configureWebpack: {
+        performance: {
+            maxEntrypointSize: 5242880,
+            maxAssetSize: 3145728,
+        },
+    },
 });
