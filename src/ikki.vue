@@ -8,6 +8,12 @@
     </div>
 </template>
 
+<script>
+    export default {
+        name: 'AppView',
+    };
+</script>
+
 <style lang="less">
     #app {
         font-family: Avenir, Helvetica, Arial, sans-serif;
