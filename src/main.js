@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import App from './ikki.vue';
-import router from './router';
-import store from './store';
+import App from '@/ikki.vue';
+import router from '@/router';
+import store from '@/store';
 
 Vue.config.productionTip = false;
 
