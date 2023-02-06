@@ -3,6 +3,7 @@ import ikki from '@/ikki.vue';
 import router from '@/router';
 import store from '@/store';
 import '@/plugins/axios';
+import '@/api';
 
 process.env.NODE_ENV === 'development' && require('@/mock');
 
