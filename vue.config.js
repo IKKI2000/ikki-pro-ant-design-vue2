@@ -4,6 +4,14 @@ module.exports = defineConfig({
     outputDir: process.env.outputDir,
     transpileDependencies: true,
     lintOnSave: true,
+    pluginOptions: {
+        i18n: {
+            locale: 'zh-CN',
+            fallbackLocale: 'en-US',
+            localeDir: 'locales',
+            enableInSFC: false,
+        },
+    },
     productionSourceMap: false,
     configureWebpack: {
         performance: {

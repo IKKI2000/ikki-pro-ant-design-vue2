@@ -12,7 +12,8 @@
         "build:prod": "vue-cli-service build --mode prod --modern",
         "build:demo": "vue-cli-service build --mode demo --modern",
         "prepare": "vue-cli-service lint && prettier --write \"*.{html,css,scss,less,js,jsx,ts,tsx,json,vue,md}\" \"public/**/*.{html,css,scss,less,js,jsx,ts,tsx,json,vue,md}\" \"src/**/*.{html,css,scss,less,js,jsx,ts,tsx,json,vue,md}\"",
-        "publish": "vue-cli-service build --mode dev --modern && vue-cli-service build --mode test --modern && vue-cli-service build --mode uat --modern && vue-cli-service build --mode prod --modern"
+        "publish": "vue-cli-service build --mode dev --modern && vue-cli-service build --mode test --modern && vue-cli-service build --mode uat --modern && vue-cli-service build --mode prod --modern",
+        "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\""
     },
     "dependencies": {
         "axios": "^1.2.2",
