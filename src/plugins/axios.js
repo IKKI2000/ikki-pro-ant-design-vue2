@@ -27,37 +27,37 @@ _axios.interceptors.response.use(
     (error) => {
         switch (error.response.status) {
             case 400:
-                error.message = '请求无效！';
+                error.message = Vue.$i18n.t('Common.ResponseError.400');
                 break;
             case 401:
-                error.message = '未授权访问！';
+                error.message = Vue.$i18n.t('Common.ResponseError.401');
                 break;
             case 403:
-                error.message = '禁止访问！';
+                error.message = Vue.$i18n.t('Common.ResponseError.403');
                 break;
             case 404:
-                error.message = '文件未找到！';
+                error.message = Vue.$i18n.t('Common.ResponseError.404');
                 break;
             case 405:
-                error.message = '请求方法被禁用！';
+                error.message = Vue.$i18n.t('Common.ResponseError.405');
                 break;
             case 500:
-                error.message = '服务器内部错误！';
+                error.message = Vue.$i18n.t('Common.ResponseError.500');
                 break;
             case 502:
-                error.message = '错误网关！';
+                error.message = Vue.$i18n.t('Common.ResponseError.502');
                 break;
             case 503:
-                error.message = '服务不可用！';
+                error.message = Vue.$i18n.t('Common.ResponseError.503');
                 break;
             case 504:
-                error.message = '网关超时！';
+                error.message = Vue.$i18n.t('Common.ResponseError.504');
                 break;
             case 505:
-                error.message = 'HTTP 版本不受支持！';
+                error.message = Vue.$i18n.t('Common.ResponseError.505');
                 break;
             default:
-                error.message = '服务器错误！';
+                error.message = Vue.$i18n.t('Common.ResponseError.default');
         }
         return Promise.reject(error);
     }
