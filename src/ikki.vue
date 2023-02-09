@@ -1,11 +1,13 @@
 <template>
-    <div id="app">
-        <nav>
-            <router-link to="/">Home</router-link> |
-            <router-link to="/about">About</router-link>
-        </nav>
-        <router-view />
-    </div>
+    <a-config-provider :locale="this.$i18n.messages[this.$i18n.locale]">
+        <div id="app">
+            <nav>
+                <router-link to="/">Home</router-link> |
+                <router-link to="/about">About</router-link>
+            </nav>
+            <router-view />
+        </div>
+    </a-config-provider>
 </template>
 
 <script>
