@@ -3,6 +3,7 @@ import ikki from '@/ikki.vue';
 import router from '@/router';
 import store from '@/store';
 import i18n from '@/plugins/i18n';
+import '@/plugins/ant-design-vue';
 import '@/plugins/axios';
 import '@/api';
 

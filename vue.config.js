@@ -12,6 +12,15 @@ module.exports = defineConfig({
             enableInSFC: false,
         },
     },
+    css: {
+        loaderOptions: {
+            less: {
+                lessOptions: {
+                    javascriptEnabled: true,
+                },
+            },
+        },
+    },
     productionSourceMap: false,
     configureWebpack: {
         performance: {
