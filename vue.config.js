@@ -17,6 +17,9 @@ module.exports = defineConfig({
             less: {
                 lessOptions: {
                     javascriptEnabled: true,
+                    modifyVars: {
+                        hack: `true; @import '@/assets/style/theme/ikki.less';`,
+                    },
                 },
             },
         },
