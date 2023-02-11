@@ -11,20 +11,24 @@ const _axios = Axios.create({
 
 _axios.interceptors.request.use(
     (request) => {
+        Vue.$store.commit('loading', true);
         request.headers.Authorization = sessionStorage.getItem('token');
         return request;
     },
     (error) => {
+        Vue.$store.commit('loading', false);
         return Promise.reject(error);
     }
 );
 
 _axios.interceptors.response.use(
     (response) => {
+        Vue.$store.commit('loading', false);
         sessionStorage.setItem('token', response.headers.Authorization);
         return response;
     },
     (error) => {
+        Vue.$store.commit('loading', false);
         switch (error.response.status) {
             case 400:
                 error.message = Vue.$i18n.t('Common.ResponseError.400');
