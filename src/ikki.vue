@@ -1,11 +1,13 @@
 <template>
-    <a-config-provider :locale="this.$i18n.messages[this.$i18n.locale]">
+    <a-config-provider :locale="$i18n.messages[$i18n.locale]">
         <div id="app">
-            <nav>
-                <router-link to="/">Home</router-link> |
-                <router-link to="/about">About</router-link>
-            </nav>
-            <router-view />
+            <a-spin :spinning="$store.state.loading" :tip="$t('Common.Loading')" :delay="200">
+                <nav>
+                    <router-link to="/">Home</router-link> |
+                    <router-link to="/about">About</router-link>
+                </nav>
+                <router-view />
+            </a-spin>
         </div>
     </a-config-provider>
 </template>
