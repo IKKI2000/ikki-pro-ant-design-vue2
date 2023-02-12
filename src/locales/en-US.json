@@ -1,6 +1,6 @@
 {
     "Common": {
-        "Loading": "Loading...",
+        "Loading": "Loading",
         "ResponseError": {
             "400": "Bad Request!",
             "401": "Unauthorized!",

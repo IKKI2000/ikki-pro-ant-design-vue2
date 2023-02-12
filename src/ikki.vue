@@ -25,6 +25,32 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2c3e50;
+        height: 100%;
+        > .ant-spin-nested-loading {
+            width: 100%;
+            height: 100%;
+            .ant-spin {
+                max-height: 100%;
+                .ant-spin-dot {
+                    margin: -60px -36px -36px -36px;
+                    width: 1.2em;
+                    height: 1.2em;
+                    font-size: 64px;
+                    .ant-spin-dot-item {
+                        width: 32px;
+                        height: 32px;
+                    }
+                }
+                .ant-spin-text {
+                    padding-top: 36px;
+                    font-size: 24px;
+                    text-shadow: none;
+                }
+            }
+            .ant-spin-container {
+                height: 100%;
+            }
+        }
     }
 
     nav {
