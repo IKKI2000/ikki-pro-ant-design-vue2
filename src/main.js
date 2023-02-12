@@ -7,6 +7,7 @@ import router from '@/router';
 import store from '@/store';
 import '@/plugins/axios';
 import '@/api';
+import '@/utils';
 
 process.env.NODE_ENV === 'development' && require('@/mock');
 
