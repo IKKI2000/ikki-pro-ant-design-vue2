@@ -52,7 +52,25 @@
             }
         }
     }
-
+    #nprogress {
+        .bar {
+            height: 3px !important;
+            background: @primary-color !important;
+            .peg {
+                box-shadow: 0 0 10px @primary-color, 0 0 5px @primary-color;
+            }
+        }
+        .spinner {
+            top: 8px !important;
+            right: 8px !important;
+            .spinner-icon {
+                border-top-color: @primary-color;
+                border-left-color: @primary-color;
+                width: 12px;
+                height: 12px;
+            }
+        }
+    }
     nav {
         padding: 30px;
 
