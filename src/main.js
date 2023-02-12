@@ -18,4 +18,4 @@ new Vue({
     router,
     store,
     render: (h) => h(ikki),
-}).$mount('#app');
+}).$mount('#ikki');
